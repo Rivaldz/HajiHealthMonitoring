@@ -6,6 +6,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="background">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
 
 
 <!--    secondary button color-->
