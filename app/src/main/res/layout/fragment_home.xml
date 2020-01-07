@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
-    <RelativeLayout
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="300dp">
 
-        <ImageView
-            android:id="@+id/imagehome"
-            android:scaleType="fitXY"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/headerhomemorning" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/selamat"
@@ -28,19 +26,20 @@
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:text="Selamat Pagi"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <RelativeLayout
-            android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="11dp"
@@ -50,16 +49,119 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"></LinearLayout>
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/buttonKesehatan"
+                            android:layout_width="74dp"
+                            android:layout_height="73dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/circle_background"
+                            android:clickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/imageKesehatan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/health_monitor" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/textKartuPanntau"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Kartu Pantau"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/buttonMenuResep"
+                            android:layout_width="74dp"
+                            android:layout_height="73dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/circle_background"
+                            android:clickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/recipe" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/textMenuResep"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Menu &amp; Resep"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:id="@+id/buttonJadwalMakan"
+                            android:layout_width="74dp"
+                            android:layout_height="73dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/circle_background"
+                            android:clickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/imagejadwalamakan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/eat_scheadule" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/textEatSchedule"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jadwal Makan"
+                            android:textAlignment="center" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
     </RelativeLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text_rekomendasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Rekomendasi untuk anda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
