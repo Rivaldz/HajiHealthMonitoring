@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1088439971911",
+    "firebase_url": "https://haji-health-monitoring.firebaseio.com",
+    "project_id": "haji-health-monitoring",
+    "storage_bucket": "haji-health-monitoring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088439971911:android:f355b42dfc98e246000162",
+        "android_client_info": {
+          "package_name": "com.valdo.hajihealthmonitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088439971911-gequj4nqaah2oak6vi88v6i7sng20rav.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.valdo.hajihealthmonitoring",
+            "certificate_hash": "071fff9be0577450ac8def480dbc534d05aaedfd"
+          }
+        },
+        {
+          "client_id": "1088439971911-h8ac4kd286ene2iom6u91kqpii1vhvar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW7Uzu82x2nL-oNe7Ol9V7yHse8Eq5QoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088439971911-h8ac4kd286ene2iom6u91kqpii1vhvar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
