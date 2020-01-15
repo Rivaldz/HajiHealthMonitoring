@@ -2,6 +2,8 @@ package com.valdo.hajihealthmonitoring.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 
 import com.valdo.hajihealthmonitoring.MainActivity;
 import com.valdo.hajihealthmonitoring.R;
+import com.valdo.hajihealthmonitoring.fragment.ProfileFragment;
+
+import java.time.Instant;
 
 public class LoginActivity extends AppCompatActivity {
     TextView register;
@@ -39,6 +44,11 @@ public class LoginActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//               ProfileFragment fragment = new ProfileFragment();
+//               getSupportFragmentManager().beginTransaction()
+//                       .replace(R.id.fragmentContainer, fragment)
+//                       .addToBackStack(null)
+//                       .commit();
            }
        });
 

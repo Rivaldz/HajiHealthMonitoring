@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="0dp">
+            android:layout_marginBottom="8dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
@@ -42,7 +42,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_margin="11dp"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="11dp"
+                android:layout_marginBottom="18dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp">
 
