@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
 
-    TextView register;
+    TextView register,lupaPass;
     EditText email, password;
     Button loginBut ;
 
@@ -42,8 +42,16 @@ public class LoginActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextEmail);
         password = findViewById(R.id.editTextPassword);
         loginBut = findViewById(R.id.buttonLogin);
+        lupaPass = findViewById(R.id.forgotPassword);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
+        lupaPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,ForgotPassActivity.class ));
+            }
+        });
 
        register.setOnClickListener(new View.OnClickListener() {
            @Override
