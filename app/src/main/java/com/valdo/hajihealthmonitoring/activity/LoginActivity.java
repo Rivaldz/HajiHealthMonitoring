@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -62,16 +63,24 @@ public class LoginActivity extends AppCompatActivity {
                           .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                               @Override
                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                  if (task.isSuccessful()) {
+                                      startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                      Toast.makeText(getBaseContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
+                                  }
+                                  else {
 
+                                      Toast.makeText(getBaseContext(), "Passowrd atau email salah ", Toast.LENGTH_SHORT).show();
+                                  }
                               }
+
                           });
 
               }
               else {
+                  Toast.makeText(getBaseContext(), "Silahkan isi email dan password", Toast.LENGTH_SHORT).show();
 
               }
 
-               startActivity(new Intent(LoginActivity.this, MainActivity.class));
 
            }
        });
