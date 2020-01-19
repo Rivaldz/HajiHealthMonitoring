@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.model.RegisterModel;
 
+import static android.text.TextUtils.isEmpty;
+
 public class RegisterActivity extends AppCompatActivity {
     ImageView backImage;
     EditText nama, email,noHp, pass;
@@ -58,7 +60,21 @@ public class RegisterActivity extends AppCompatActivity {
        register.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               regiterEmail();
+               String namaString = nama.getText().toString();
+               String emailString = email.getText().toString();
+               String noHpString = noHp.getText().toString();
+               String passString = pass.getText().toString();
+               if (!isEmpty(namaString) && !isEmpty(emailString) && !isEmpty(noHpString) && !isEmpty(passString)){
+                   if (validasiEmail(emailString)) {
+                       regiterEmail();
+                   }
+                   else {
+                       Toast.makeText(getBaseContext(), "Silahkan isi email dengan format yang benar", Toast.LENGTH_LONG).show();
+                   }
+               }
+               else {
+                   Toast.makeText(getBaseContext(), "Silahkan isi semua kolom", Toast.LENGTH_LONG).show();
+               }
 
            }
        });
@@ -79,7 +95,25 @@ public class RegisterActivity extends AppCompatActivity {
                         finish();
 
                     }
+
                 });
+
+    }
+
+    public static  boolean validasiEmail(String email){
+        boolean validate;
+
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        String emailPattern2 = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+\\.+[a-z]+";
+
+        if (email.matches(emailPattern)) {
+            validate = true;
+        } else if (email.matches(emailPattern2)) {
+            validate = true;
+        } else {
+            validate = false;
+        }
+        return validate;
 
     }
 
