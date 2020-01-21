@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 //import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.activity.LoginActivity;
 import com.valdo.hajihealthmonitoring.fragment.HomeFragment;
 import com.valdo.hajihealthmonitoring.fragment.ProfileFragment;
@@ -45,8 +46,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 fragment =new HomeFragment();
                 break;
             case R.id.action_profile:
+                if (Preferences.getLoggedInStatus(getBaseContext())){
+                fragment = new ProfileFragment();
+                }
+                else
                 startActivity(new Intent(this, LoginActivity.class));
-//                fragment = new ProfileFragment();
+
                 break;
         }
         return loadFragment(fragment);

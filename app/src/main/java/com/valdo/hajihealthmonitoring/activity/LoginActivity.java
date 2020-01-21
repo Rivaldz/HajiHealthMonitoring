@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.valdo.hajihealthmonitoring.MainActivity;
+import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.fragment.ProfileFragment;
 
@@ -73,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                               public void onComplete(@NonNull Task<AuthResult> task) {
                                   if (task.isSuccessful()) {
                                       startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                      Preferences.setLoggedInStatus(getBaseContext(),true);
                                       Toast.makeText(getBaseContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                                   }
                                   else {
