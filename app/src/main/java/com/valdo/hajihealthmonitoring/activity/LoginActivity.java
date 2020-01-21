@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     Button loginBut ;
 
+    private ProgressBar mProgress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,13 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.editTextPassword);
         loginBut = findViewById(R.id.buttonLogin);
         lupaPass = findViewById(R.id.forgotPassword);
+        mProgress = findViewById(R.id.simpleProgressBar);
+//
+//        mProgress = new ProgressDialog(getBaseContext());
+//        mProgress.setTitle("Processing...");
+//        mProgress.setMessage("Please wait...");
+//        mProgress.setCancelable(false);
+//        mProgress.setIndeterminate(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -67,18 +78,20 @@ public class LoginActivity extends AppCompatActivity {
            public void onClick(View v) {
               String emailSt = email.getText().toString();
               String passSt = password.getText().toString();
-              if (!isEmpty(emailSt) && !isEmpty(passSt)){
+
+               if (!isEmpty(emailSt) && !isEmpty(passSt)){
                   firebaseAuth.signInWithEmailAndPassword(emailSt,passSt)
                           .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                               @Override
                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                  mProgress.setVisibility(View.VISIBLE);
                                   if (task.isSuccessful()) {
                                       startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                       Preferences.setLoggedInStatus(getBaseContext(),true);
                                       Toast.makeText(getBaseContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                                   }
                                   else {
-
+                                      mProgress.setVisibility(View.INVISIBLE);
                                       Toast.makeText(getBaseContext(), "Passowrd atau email salah ", Toast.LENGTH_SHORT).show();
                                   }
                               }

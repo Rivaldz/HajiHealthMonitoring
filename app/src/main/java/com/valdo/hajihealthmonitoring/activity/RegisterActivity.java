@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView backImage;
     EditText nama, email,noHp, pass;
     Button register;
+    ProgressBar progressBar;
 
     FirebaseAuth firebaseAuth;
     DatabaseReference databaseReference;
@@ -40,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.emailRegister);
         noHp = findViewById(R.id.noHpRegister);
         pass = findViewById(R.id.passRegister);
+        progressBar = findViewById(R.id.simpleProgressBarRegis);
 
         backImage = findViewById(R.id.buttonBack);
         register = findViewById(R.id.buttonDaftar);
@@ -66,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                String passString = pass.getText().toString();
                if (!isEmpty(namaString) && !isEmpty(emailString) && !isEmpty(noHpString) && !isEmpty(passString)){
                    if (validasiEmail(emailString)) {
+                       progressBar.setVisibility(View.VISIBLE);
                        regiterEmail();
                    }
                    else {
