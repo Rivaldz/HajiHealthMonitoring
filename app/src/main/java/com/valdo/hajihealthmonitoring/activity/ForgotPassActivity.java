@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.valdo.hajihealthmonitoring.R;
 
+import static android.text.TextUtils.isEmpty;
+
 public class ForgotPassActivity extends AppCompatActivity {
     private EditText email;
     private Button verifikasi;
@@ -30,20 +32,24 @@ public class ForgotPassActivity extends AppCompatActivity {
         verifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Intent i = new Intent(ForgotPassActivity.this, LoginActivity.class);
-                                    startActivity(i);
-                                    Toast.makeText(ForgotPassActivity.this, "Sukses reset password silahkan cek Email", Toast.LENGTH_LONG).show();
-                                } else {
+                if (!isEmpty(email.getText().toString())) {
+                    FirebaseAuth.getInstance().sendPasswordResetEmail(email.getText().toString())
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Intent i = new Intent(ForgotPassActivity.this, LoginActivity.class);
+                                        startActivity(i);
+                                        Toast.makeText(ForgotPassActivity.this, "Sukses reset password silahkan cek Email", Toast.LENGTH_LONG).show();
+                                    } else {
 
-                                    Toast.makeText(ForgotPassActivity.this, "Email Tidak Terdaftar ", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ForgotPassActivity.this, "Email Tidak Terdaftar ", Toast.LENGTH_LONG).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
+                else
+                    Toast.makeText(ForgotPassActivity.this, "Silahkan isi Email anda", Toast.LENGTH_LONG).show();
             }
         });
     }
