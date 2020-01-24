@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +25,9 @@ import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.fragment.ProfileFragment;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.time.Instant;
 
 import static android.text.TextUtils.isEmpty;
@@ -35,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView register,lupaPass;
     EditText email, password;
     Button loginBut ;
+    String emailSto;
 
     private ProgressBar mProgress;
 
@@ -49,8 +54,10 @@ public class LoginActivity extends AppCompatActivity {
         loginBut = findViewById(R.id.buttonLogin);
         lupaPass = findViewById(R.id.forgotPassword);
         mProgress = findViewById(R.id.simpleProgressBar);
+
+
 //
-//        mProgress = new ProgressDialog(getBaseContext());
+//        mProgress = new ProgressDialog(gkketBaseContext());
 //        mProgress.setTitle("Processing...");
 //        mProgress.setMessage("Please wait...");
 //        mProgress.setCancelable(false);
@@ -78,6 +85,8 @@ public class LoginActivity extends AppCompatActivity {
            public void onClick(View v) {
               String emailSt = email.getText().toString();
               String passSt = password.getText().toString();
+              emailSto = emailSt;
+              Preferences.setLoggedInUser(getBaseContext(), emailSt);
 
                if (!isEmpty(emailSt) && !isEmpty(passSt)){
                   firebaseAuth.signInWithEmailAndPassword(emailSt,passSt)
@@ -108,6 +117,16 @@ public class LoginActivity extends AppCompatActivity {
            }
        });
 
+
+    }
+
+    private String setEmail() throws IOException {
+        String emailSt = null;
+        FileOutputStream fOut = openFileOutput("eStorage", Context.MODE_PRIVATE);
+        fOut.write(emailSto.getBytes());
+        fOut.close();
+
+        return emailSt;
 
     }
 }
