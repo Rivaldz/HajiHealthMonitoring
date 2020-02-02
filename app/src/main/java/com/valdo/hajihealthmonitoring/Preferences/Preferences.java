@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 public class Preferences {
     /** Pendeklarasian key-data berupa String, untuk sebagai wadah penyimpanan data.
      * Jadi setiap data mempunyai key yang berbeda satu sama lain */
-    static final String KEY_USER_TEREGISTER ="user", KEY_PASS_TEREGISTER ="pass";
+    static final String KEY_IBU_TEREGISTER ="ibu", KEY_BAYI_TEREGISTER ="bayi",KEY_TTL_TEREGISTER="ttl" ;
     static final String KEY_USERNAME_SEDANG_LOGIN = "Username_logged_in";
     static final String KEY_STATUS_SEDANG_LOGIN = "Status_logged_in";
 
@@ -18,27 +18,52 @@ public class Preferences {
 
     /** Deklarasi Edit Preferences dan mengubah data
      *  yang memiliki key isi KEY_USER_TEREGISTER dengan parameter username */
-    public static void setRegisteredUser(Context context, String username){
+    public static void setRegisteredIbu(Context context, String namaIbu){
         SharedPreferences.Editor editor = getSharedPreference(context).edit();
-        editor.putString(KEY_USER_TEREGISTER, username);
+        editor.putString(KEY_IBU_TEREGISTER, namaIbu);
         editor.apply();
     }
+
+
     /** Mengembalikan nilai dari key KEY_USER_TEREGISTER berupa String */
-    public static String getRegisteredUser(Context context){
-        return getSharedPreference(context).getString(KEY_USER_TEREGISTER,"");
+    public static String getRegisteredIbu(Context context){
+        return getSharedPreference(context).getString(KEY_IBU_TEREGISTER,"");
+    }
+     public static void setRegisteredBayi(Context context, String namaBayi){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString(KEY_BAYI_TEREGISTER, namaBayi);
+        editor.apply();
+    }
+
+
+    /** Mengembalikan nilai dari key KEY_USER_TEREGISTER berupa String */
+    public static String getRegisteredBayi(Context context){
+        return getSharedPreference(context).getString(KEY_BAYI_TEREGISTER,"");
+    }
+
+    public static void setRegisteredTtl(Context context, String ttl){
+        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+        editor.putString(KEY_TTL_TEREGISTER, ttl);
+        editor.apply();
+    }
+
+
+    /** Mengembalikan nilai dari key KEY_USER_TEREGISTER berupa String */
+    public static String getRegisteredTtl(Context context){
+        return getSharedPreference(context).getString(KEY_TTL_TEREGISTER,"");
     }
 
     /** Deklarasi Edit Preferences dan mengubah data
      *  yang memiliki key KEY_PASS_TEREGISTER dengan parameter password */
-    public static void setRegisteredPass(Context context, String password){
-        SharedPreferences.Editor editor = getSharedPreference(context).edit();
-        editor.putString(KEY_PASS_TEREGISTER, password);
-        editor.apply();
-    }
-    /** Mengembalikan nilai dari key KEY_PASS_TEREGISTER berupa String */
-    public static String getRegisteredPass(Context context){
-        return getSharedPreference(context).getString(KEY_PASS_TEREGISTER,"");
-    }
+//    public static void setRegisteredPass(Context context, String password){
+//        SharedPreferences.Editor editor = getSharedPreference(context).edit();
+//        editor.putString(KEY_PASS_TEREGISTER, password);
+//        editor.apply();
+//    }
+//    /** Mengembalikan nilai dari key KEY_PASS_TEREGISTER berupa String */
+//    public static String getRegisteredPass(Context context){
+//        return getSharedPreference(context).getString(KEY_PASS_TEREGISTER,"");
+//    }
 
     /** Deklarasi Edit Preferences dan mengubah data
      *  yang memiliki key KEY_USERNAME_SEDANG_LOGIN dengan parameter username */

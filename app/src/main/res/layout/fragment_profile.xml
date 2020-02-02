@@ -1,10 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ProfileFragment">
+
+    <Button
+        android:id="@+id/saveChanges"
+        android:layout_width="133dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/button_shapegreen"
+        android:text="SImpan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noHpProfil" />
+
+    <EditText
+        android:id="@+id/emailProfil"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:editable="false"
+        android:focusable="false"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameProfil" />
+
+    <EditText
+        android:id="@+id/noHpProfil"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailProfil" />
+
+    <EditText
+        android:id="@+id/usernameProfil"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout3"
@@ -58,77 +107,19 @@
 
                     <Button
                         android:id="@+id/LogOut"
-                        android:layout_width="105dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="26dp"
-                        android:layout_gravity="left"
+                        android:layout_gravity="center"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/button_shapegreen"
                         android:text="Logout" />
 
 
-                    <Button
-                        android:id="@+id/editProfile"
-                        android:layout_width="105dp"
-                        android:layout_height="26dp"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/button_shapegreen"
-                        android:text="Edit Profile" />
-
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-    <EditText
-        android:id="@+id/usernameProfil"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
-
-    <EditText
-        android:id="@+id/emailProfil"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameProfil" />
-
-    <EditText
-        android:id="@+id/noHpProfil"
-        android:layout_width="370dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailProfil" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="42dp"
-        android:text="Nama Pengguna"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
     <TextView
         android:id="@+id/textView3"
@@ -152,14 +143,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 
-    <Button
-        android:id="@+id/saveChanges"
-        android:layout_width="133dp"
-        android:layout_height="45dp"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
-        android:background="@drawable/button_shapegreen"
-        android:text="SImpan"
+        android:layout_marginTop="42dp"
+        android:text="Nama Pengguna"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noHpProfil" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

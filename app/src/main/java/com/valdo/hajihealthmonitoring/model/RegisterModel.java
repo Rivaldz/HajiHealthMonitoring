@@ -10,6 +10,9 @@ public class RegisterModel {
         this.pass = pass;
     }
 
+    public RegisterModel() {
+    }
+
     public String getNama() {
         return nama;
     }

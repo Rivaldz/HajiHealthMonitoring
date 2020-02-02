@@ -34,72 +34,78 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <RelativeLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right">
-
-                <TextView
-                    android:id="@+id/header_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"
-                    android:text="Sudah \nMemiliki \nAkun?"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/header_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="0dp"
-                    app:srcCompat="@drawable/haji_header_login" />
-
-            </RelativeLayout>
+                android:layout_height="match_parent"
+                android:text="\t\t\t\tSilahkan Masukan Data Balita"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                />
 
             <TextView
-                android:id="@+id/textEmail"
+                android:id="@+id/textNamaIbu"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:textColor="@color/greenYoung"
                 android:layout_height="wrap_content"
-                android:text="Email" />
+                android:text="Nama Ibu" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputEmail"
+                android:id="@+id/textInputNamaIbu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/editTextNamaIbu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
                     android:inputType="textEmailAddress"
                     android:backgroundTint="@color/greenYoung"
                     android:maxLines="1"
-                    android:hint="Masukkan email anda!"/>
+                    android:hint="Masukkan Nama Ibu"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/textPassword"
+                android:id="@+id/textNamaBayi"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:textColor="@color/greenYoung"
+                android:layout_height="wrap_content"
+                android:text="Nama Balita" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputNamaBalita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/editTextBalita"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:inputType="textEmailAddress"
+                    android:backgroundTint="@color/greenYoung"
+                    android:maxLines="1"
+                    android:hint="Masukan Nama Balita"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/textTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textColor="@color/greenYoung"
-                android:text="Password" />
+                android:text="Tempat Tanggal Lahir" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputPassword"
+                android:id="@+id/textInputTtl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/editTextPassword"
+                    android:id="@+id/editTtl"
                     android:inputType="textPassword"
-                    android:hint="Masukkan password anda!"
+                    android:hint="Masukan Tanggal Lahir Bayi Anda"
                     android:textSize="15sp"
                     android:backgroundTint="@color/greenYoung"
                     android:maxLines="1"
@@ -136,7 +142,7 @@
                 android:textAlignment="center"
                 android:text="Pengguna baru? Daftar Sekarang!" />
 
-        </LinearLayout>
+        </LinearLayout>>
     </ScrollView>
     <View
         android:layout_marginTop="20dp"

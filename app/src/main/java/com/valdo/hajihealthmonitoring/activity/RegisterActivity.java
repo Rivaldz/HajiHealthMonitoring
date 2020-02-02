@@ -129,8 +129,8 @@ public class RegisterActivity extends AppCompatActivity {
         String[] emailSplit = emailString.split("\\.");
         String email = emailSplit[0];
 
-        RegisterModel registerModel = new RegisterModel(namaString,email,noHpString,passString);
-        databaseReference.child(email).setValue(registerModel);
+        RegisterModel registerModel = new RegisterModel(namaString,emailString,noHpString,passString);
+        databaseReference.child(email).push().setValue(registerModel);
 
     }
 }

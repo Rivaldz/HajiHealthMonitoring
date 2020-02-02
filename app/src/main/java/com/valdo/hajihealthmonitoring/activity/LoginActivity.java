@@ -28,6 +28,7 @@ import com.valdo.hajihealthmonitoring.fragment.ProfileFragment;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.time.Instant;
 
 import static android.text.TextUtils.isEmpty;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     TextView register,lupaPass;
-    EditText email, password;
+    EditText namaIbu, namaBalita, ttl;
     Button loginBut ;
     String emailSto;
 
@@ -48,20 +49,14 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        register = findViewById(R.id.textRegister);
-        email = findViewById(R.id.editTextEmail);
-        password = findViewById(R.id.editTextPassword);
+        namaIbu = findViewById(R.id.editTextNamaIbu);
+        namaBalita = findViewById(R.id.editTextBalita);
+        ttl = findViewById(R.id.editTtl);
+
         loginBut = findViewById(R.id.buttonLogin);
         lupaPass = findViewById(R.id.forgotPassword);
         mProgress = findViewById(R.id.simpleProgressBar);
 
-
-//
-//        mProgress = new ProgressDialog(gkketBaseContext());
-//        mProgress.setTitle("Processing...");
-//        mProgress.setMessage("Please wait...");
-//        mProgress.setCancelable(false);
-//        mProgress.setIndeterminate(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -72,46 +67,26 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-       register.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-
-           }
-       });
 
        loginBut.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-              String emailSt = email.getText().toString();
-              String passSt = password.getText().toString();
-              emailSto = emailSt;
-              Preferences.setLoggedInUser(getBaseContext(), emailSt);
+               String namaIbuSt = namaIbu.getText().toString();
+               String namaBalitaSt = namaBalita.getText().toString();
+               String ttlSt = ttl.getText().toString();
+               if (!isEmpty(namaBalitaSt) && !isEmpty(namaIbuSt) && !isEmpty(ttlSt)) {
 
-               if (!isEmpty(emailSt) && !isEmpty(passSt)){
-                  firebaseAuth.signInWithEmailAndPassword(emailSt,passSt)
-                          .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                              @Override
-                              public void onComplete(@NonNull Task<AuthResult> task) {
-                                  mProgress.setVisibility(View.VISIBLE);
-                                  if (task.isSuccessful()) {
-                                      startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                      Preferences.setLoggedInStatus(getBaseContext(),true);
-                                      Toast.makeText(getBaseContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-                                  }
-                                  else {
-                                      mProgress.setVisibility(View.INVISIBLE);
-                                      Toast.makeText(getBaseContext(), "Passowrd atau email salah ", Toast.LENGTH_SHORT).show();
-                                  }
-                              }
+                   Preferences.setRegisteredIbu(getBaseContext(), namaIbuSt);
+                   Preferences.setRegisteredBayi(getBaseContext(), namaBalitaSt);
+                   Preferences.setRegisteredTtl(getBaseContext(), ttlSt);
 
-                          });
+                   Preferences.setLoggedInStatus(getBaseContext(),true);
 
-              }
-              else {
-                  Toast.makeText(getBaseContext(), "Silahkan isi email dan password", Toast.LENGTH_SHORT).show();
-
-              }
+                   startActivity(new Intent(LoginActivity.this, KartuPantau.class));
+               }
+               else {
+                   Toast.makeText(getBaseContext(), "Silahkan isi semua form", Toast.LENGTH_SHORT);
+               }
 
 
            }
@@ -120,13 +95,4 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private String setEmail() throws IOException {
-        String emailSt = null;
-        FileOutputStream fOut = openFileOutput("eStorage", Context.MODE_PRIVATE);
-        fOut.write(emailSto.getBytes());
-        fOut.close();
-
-        return emailSt;
-
-    }
 }

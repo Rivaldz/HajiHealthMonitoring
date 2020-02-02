@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.valdo.hajihealthmonitoring.MainActivity;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
+import com.valdo.hajihealthmonitoring.model.ProfileModel;
 import com.valdo.hajihealthmonitoring.model.RegisterModel;
 
 /**
@@ -29,9 +30,10 @@ import com.valdo.hajihealthmonitoring.model.RegisterModel;
  */
 public class ProfileFragment extends Fragment {
 
-    Button logout,saveBt;
-    EditText email,username,noHp;
-    String emailSplit;
+    private Button logout,saveBt;
+    private EditText email,username,noHp;
+    private String emailSplit,key,pass;
+
 
     DatabaseReference databaseReference;
     FirebaseDatabase firebaseDatabase;
@@ -51,13 +53,14 @@ public class ProfileFragment extends Fragment {
         username = view.findViewById(R.id.usernameProfil);
         email = view.findViewById(R.id.emailProfil);
         noHp = view.findViewById(R.id.noHpProfil);
+        saveBt = view.findViewById(R.id.saveChanges);
+
+
 
         String emailLogin = Preferences.getLoggedInUser(getContext());
         String[] part = emailLogin.split("\\.");
         emailSplit = part[0];
-//        email.setText(emailLogin);
         getFirebase();
-
 
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +68,17 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Preferences.clearLoggedInUser(getContext());
                 view.getContext().startActivity(new Intent(getActivity(), MainActivity.class));
+
             }
         });
+
+        saveBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               updateProfile();
+            }
+        });
+
 
         return  view;
     }
@@ -79,12 +91,13 @@ public class ProfileFragment extends Fragment {
         databaseReference.child("User").child(emailSplit).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                RegisterModel showProfil = dataSnapshot.getValue(RegisterModel.class);
+                ProfileModel showProfil = dataSnapshot.getValue(ProfileModel.class);
+                key = dataSnapshot.getKey();
                 username.setText(showProfil.getNama());
                 email.setText(showProfil.getEmail());
                 noHp.setText(showProfil.getNoHp());
+                pass = showProfil.getPass();
 
-                System.out.println(showProfil.getEmail() + "ini email " + showProfil.getNama() );
             }
 
             @Override
@@ -107,6 +120,10 @@ public class ProfileFragment extends Fragment {
 
             }
         });
+    }
+    private void updateProfile(){
+        RegisterModel registerModel = new RegisterModel(username.getText().toString(),email.getText().toString(),noHp.getText().toString(),pass);
+        databaseReference.child("User").child(emailSplit).child(key).setValue(registerModel);
     }
 
 }
