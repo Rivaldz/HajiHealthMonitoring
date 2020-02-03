@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
+import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
 import com.valdo.hajihealthmonitoring.activity.LoginActivity;
 
 /**
@@ -44,7 +45,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                     if (Preferences.getLoggedInStatus(getContext())){
-                       startActivity(new Intent(getContext(), KartuPantau.class));
+                       startActivity(new Intent(getContext(), KartuPemantauan.class));
                     }
                     else
                         startActivity(new Intent(getContext(), LoginActivity.class));

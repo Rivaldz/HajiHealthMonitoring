@@ -24,13 +24,15 @@ public class KartuPantau extends AppCompatActivity {
     EditText tinggi,berat;
     Button submitBut;
 
+    static final int READ_BLOCK_SIZE = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kartu_pantau);
 //        lihatTanggal = findViewById(R.id.tanggal);
 //        namaBalita = findViewById(R.id.textViewNamaBalita);
-        namaBalita.setText(Preferences.getRegisteredBayi(getBaseContext()) + "/t");
+//        namaBalita.setText(Preferences.getRegisteredBayi(getBaseContext()) + "/t");
 
 
         setDate(lihatTanggal);

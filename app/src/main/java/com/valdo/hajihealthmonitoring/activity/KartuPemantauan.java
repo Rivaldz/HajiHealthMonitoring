@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.valdo.hajihealthmonitoring.R;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,6 +24,8 @@ public class KartuPemantauan extends AppCompatActivity {
     EditText tinggi,berat;
     Button submitBut;
 
+    static final int READ_BLOCK_SIZE = 100;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class KartuPemantauan extends AppCompatActivity {
         namaBalita = findViewById(R.id.kartuNama);
         minggu = findViewById(R.id.kartuMinggu);
         tinggi = findViewById(R.id.editTextTinggi);
+        berat = findViewById(R.id.editTextBerat);
 
         setDate(lihatTanggal);
 
@@ -41,6 +46,8 @@ public class KartuPemantauan extends AppCompatActivity {
                 writeData();
             }
         });
+
+        readData();
 
     }
 
@@ -54,6 +61,29 @@ public class KartuPemantauan extends AppCompatActivity {
             //display file saved message
             Toast.makeText(getBaseContext(), "File saved successfully!",
                     Toast.LENGTH_SHORT).show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private  void readData(){
+        try {
+            FileInputStream fileIn=openFileInput("mytextfile.txt");
+            InputStreamReader InputRead= new InputStreamReader(fileIn);
+
+            char[] inputBuffer= new char[READ_BLOCK_SIZE];
+            String s="";
+            int charRead;
+
+            while ((charRead=InputRead.read(inputBuffer))>0) {
+                // char to string conversion
+                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                s +=readstring;
+            }
+            berat.setText(s);
+            InputRead.close();
+
 
         } catch (Exception e) {
             e.printStackTrace();

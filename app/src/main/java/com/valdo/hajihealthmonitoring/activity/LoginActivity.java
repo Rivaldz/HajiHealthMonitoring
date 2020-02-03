@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
                    Preferences.setLoggedInStatus(getBaseContext(),true);
 
-                   startActivity(new Intent(LoginActivity.this, KartuPantau.class));
+                   startActivity(new Intent(LoginActivity.this, KartuPemantauan.class));
                }
                else {
                    Toast.makeText(getBaseContext(), "Silahkan isi semua form", Toast.LENGTH_SHORT);
