@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.github.barteksc.pdfviewer.PDFView;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
@@ -23,6 +24,8 @@ import com.valdo.hajihealthmonitoring.activity.LoginActivity;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
+
+    PDFView pdfView;
 
 
 
@@ -38,6 +41,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RelativeLayout buttonKesehatan = view.findViewById(R.id.buttonKesehatan);
         RelativeLayout buttonJadwal = view.findViewById(R.id.buttonJadwalMakan);
+
+        pdfView = view.findViewById(R.id.pdfv);
+        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
+
 
 
 
