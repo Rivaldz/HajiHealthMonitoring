@@ -42,8 +42,8 @@ public class HomeFragment extends Fragment {
         RelativeLayout buttonKesehatan = view.findViewById(R.id.buttonKesehatan);
         RelativeLayout buttonJadwal = view.findViewById(R.id.buttonJadwalMakan);
 
-        pdfView = view.findViewById(R.id.pdfv);
-        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
+//        pdfView = view.findViewById(R.id.pdfv);
+//        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
 
 
 
