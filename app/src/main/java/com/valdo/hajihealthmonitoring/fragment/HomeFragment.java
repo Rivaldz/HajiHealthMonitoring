@@ -4,6 +4,7 @@ package com.valdo.hajihealthmonitoring.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +15,11 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.github.barteksc.pdfviewer.PDFView;
+import com.valdo.hajihealthmonitoring.Booklet.BookletAkg;
+import com.valdo.hajihealthmonitoring.Booklet.BookletKeluargaGizi;
+import com.valdo.hajihealthmonitoring.Booklet.BookletMakanBalita;
+import com.valdo.hajihealthmonitoring.Booklet.BookletStunting;
+import com.valdo.hajihealthmonitoring.Booklet.BookletZatTubuh;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
@@ -23,9 +29,9 @@ import com.valdo.hajihealthmonitoring.activity.LoginActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
-    PDFView pdfView;
+//    PDFView pdfView;
 
 
 
@@ -42,6 +48,16 @@ public class HomeFragment extends Fragment {
         RelativeLayout buttonKesehatan = view.findViewById(R.id.buttonKesehatan);
         RelativeLayout buttonJadwal = view.findViewById(R.id.buttonJadwalMakan);
 
+        CardView stunting = view.findViewById(R.id.stunting);
+        stunting.setOnClickListener(this);
+        CardView akg = view.findViewById(R.id.AKG);
+        akg.setOnClickListener(this);
+        CardView zatgizi = view.findViewById(R.id.zatGizi);
+        zatgizi.setOnClickListener(this);
+        CardView makanBalita = view.findViewById(R.id.makanBalita);
+        makanBalita.setOnClickListener(this);
+        CardView ksg = view.findViewById(R.id.KSG);
+        ksg.setOnClickListener(this);
 //        pdfView = view.findViewById(R.id.pdfv);
 //        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
 
@@ -73,4 +89,38 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.stunting:
+                startActivity(new Intent(getContext(), BookletStunting.class));
+
+                break;
+            case R.id.AKG:
+                /// do this
+
+                startActivity(new Intent(getContext(), BookletAkg.class));
+
+                break;
+
+            case R.id.zatGizi:
+                /// do this
+
+                startActivity(new Intent(getContext(), BookletZatTubuh.class));
+                break;
+
+            case R.id.makanBalita:
+                /// do this
+
+                startActivity(new Intent(getContext(), BookletMakanBalita.class));
+                break;
+
+            case  R.id.KSG:
+
+                startActivity(new Intent(getContext(), BookletKeluargaGizi.class));
+
+                break;
+        }
+
+    }
 }

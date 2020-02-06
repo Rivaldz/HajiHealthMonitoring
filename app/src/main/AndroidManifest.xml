@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.BookletActivity"></activity>
+        <activity android:name=".Booklet.BookletKeluargaGizi"></activity>
+        <activity android:name=".Booklet.BookletMakanBalita" />
+        <activity android:name=".Booklet.BookletZatTubuh" />
+        <activity android:name=".Booklet.BookletAkg" />
+        <activity android:name=".Booklet.BookletStunting" />
         <activity android:name=".activity.KartuPemantauan" />
         <activity android:name=".activity.KartuPantau" />
         <activity android:name=".activity.ForgotPassActivity" />
