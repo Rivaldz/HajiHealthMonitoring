@@ -31,7 +31,8 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
-                    android:src="@drawable/fruit_logo" />
+                    android:text="Viral Android"
+                    />
 
                 <TextView
                     android:id="@+id/cardview_list_title"
@@ -74,7 +75,7 @@
                     android:layout_height="55dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
-                    android:src="@drawable/fruit_logo"/>
+                    />
 
                 <TextView
                     android:id="@+id/cardview_list_title2"
