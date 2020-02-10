@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.valdo.hajihealthmonitoring.Booklet.BookletAkg;
@@ -25,6 +26,9 @@ import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
 import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
 import com.valdo.hajihealthmonitoring.activity.LoginActivity;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +62,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         makanBalita.setOnClickListener(this);
         CardView ksg = view.findViewById(R.id.KSG);
         ksg.setOnClickListener(this);
+        TextView txtSelamat = view.findViewById(R.id.selamat);
 //        pdfView = view.findViewById(R.id.pdfv);
 //        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
 
@@ -86,6 +91,23 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                         .commit();
             }
         });
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        String greeting = null;
+        if (hour >= 12 && hour < 17){
+            greeting = "Selamat Sore";
+        }else if (hour >=17 && hour < 18.30){
+            greeting = "Selamat Petang";
+        }else if (hour >=18.30 && hour < 24){
+            greeting = "Selamat Malam";
+        }else if (hour >= 10 && hour < 12){
+            greeting = "Selamat Siang";
+        }else {
+            greeting = "Selamat Pagi";
+        }
+        txtSelamat.setText(greeting);
         return view;
     }
 
@@ -121,6 +143,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
                 break;
         }
+
+
 
     }
 }
