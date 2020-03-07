@@ -203,7 +203,7 @@
                         android:layout_height="55dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="18dp"
-                        android:src="@drawable/fruit_logo" />
+                        android:src="@drawable/stunting" />
 
                     <TextView
                         android:id="@+id/cardview_list_title2"
