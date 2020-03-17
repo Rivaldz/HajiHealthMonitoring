@@ -250,7 +250,7 @@
                         android:layout_height="55dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="18dp"
-                        android:src="@drawable/fruit_logo" />
+                        android:src="@drawable/picture1" />
 
                     <TextView
                         android:id="@+id/cardview_list_title1"
@@ -297,7 +297,7 @@
                         android:layout_height="55dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="18dp"
-                        android:src="@drawable/fruit_logo" />
+                        android:src="@drawable/zat_tubuh" />
 
                     <TextView
                         android:id="@+id/cardview_list_title3"
@@ -344,7 +344,7 @@
                         android:layout_height="55dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="18dp"
-                        android:src="@drawable/fruit_logo" />
+                        android:src="@drawable/eatingchild" />
 
                     <TextView
                         android:id="@+id/cardview_list_title4"
@@ -391,7 +391,7 @@
                         android:layout_height="55dp"
                         android:layout_alignParentTop="true"
                         android:layout_marginRight="18dp"
-                        android:src="@drawable/fruit_logo" />
+                        android:src="@drawable/familygizi" />
 
                     <TextView
                         android:id="@+id/cardview_list_title5"
