@@ -40,6 +40,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/nyusu"
                     android:text="Viral Android"
                     />
 
@@ -84,6 +85,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/bubur"
                     android:text="Viral Android"
                     />
 
@@ -128,6 +130,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/biscuit"
                     android:text="Viral Android"
                     />
 
@@ -172,6 +175,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/bubur"
                     android:text="Viral Android"
                     />
 
@@ -216,6 +220,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/nyusu"
                     android:text="Viral Android"
                     />
 
@@ -260,6 +265,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/biscuit"
                     android:text="Viral Android"
                     />
 
@@ -304,6 +310,7 @@
                     android:layout_height="59dp"
                     android:layout_alignParentTop="true"
                     android:layout_marginRight="18dp"
+                    android:src="@drawable/bubur"
                     android:text="Viral Android"
                     />
 
@@ -346,6 +353,7 @@
                     android:layout_width="54dp"
                     android:layout_height="55dp"
                     android:layout_alignParentTop="true"
+                    android:src="@drawable/nyusu"
                     android:layout_marginRight="18dp"
                     />
 
