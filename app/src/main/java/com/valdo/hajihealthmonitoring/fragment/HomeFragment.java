@@ -20,6 +20,7 @@ import com.valdo.hajihealthmonitoring.Booklet.BookletStunting;
 import com.valdo.hajihealthmonitoring.Booklet.BookletZatTubuh;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
+import com.valdo.hajihealthmonitoring.activity.KartuPantau;
 import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
 
 import java.util.Calendar;
@@ -29,10 +30,6 @@ import java.util.Date;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment implements View.OnClickListener{
-
-//    PDFView pdfView;
-
-
 
     public HomeFragment() {
         // Required empty public constructor
@@ -58,23 +55,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         CardView ksg = view.findViewById(R.id.KSG);
         ksg.setOnClickListener(this);
         TextView txtSelamat = view.findViewById(R.id.selamat);
-//        pdfView = view.findViewById(R.id.pdfv);
-//        pdfView.fromAsset("ISI BOOKLET SEMENTARA18px.pdf").load();
-
-
-
-
-//        buttonKesehatan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                    if (Preferences.getLoggedInStatus(getContext())){
-//                       startActivity(new Intent(getContext(), KartuPemantauan.class));
-//                    }
-//                    else
-//                        startActivity(new Intent(getContext(), LoginActivity.class));
-//
-//            }
-//        });
 
         buttonJadwal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +64,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                         .replace(R.id.fragmentContainer, nextFrag)
                         .addToBackStack(null)
                         .commit();
+            }
+        });
+
+        buttonKesehatan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), KartuPemantauan.class));
             }
         });
         Date date = new Date();
@@ -104,42 +91,32 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         txtSelamat.setText(greeting);
         return view;
+
     }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.stunting:
                 startActivity(new Intent(getContext(), BookletStunting.class));
-
                 break;
             case R.id.AKG:
                 /// do this
-
                 startActivity(new Intent(getContext(), BookletAkg.class));
-
                 break;
 
             case R.id.zatGizi:
-                /// do this
-
                 startActivity(new Intent(getContext(), BookletZatTubuh.class));
                 break;
 
             case R.id.makanBalita:
-                /// do this
-
                 startActivity(new Intent(getContext(), BookletMakanBalita.class));
                 break;
 
             case  R.id.KSG:
-
                 startActivity(new Intent(getContext(), BookletKeluargaGizi.class));
-
                 break;
         }
-
-
-
     }
 }
