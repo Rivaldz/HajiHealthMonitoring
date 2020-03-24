@@ -16,9 +16,7 @@
         <activity android:name=".Booklet.BookletStunting" />
         <activity android:name=".activity.KartuPemantauan" />
         <activity android:name=".activity.KartuPantau" />
-        <activity android:name=".activity.ForgotPassActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegisterActivity" /> <!-- <activity android:name=".MainActivity"/> -->
+        <!-- <activity android:name=".MainActivity"/> -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

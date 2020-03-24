@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.github.barteksc.pdfviewer.PDFView;
 import com.valdo.hajihealthmonitoring.Booklet.BookletAkg;
 import com.valdo.hajihealthmonitoring.Booklet.BookletKeluargaGizi;
 import com.valdo.hajihealthmonitoring.Booklet.BookletMakanBalita;
@@ -23,9 +20,7 @@ import com.valdo.hajihealthmonitoring.Booklet.BookletStunting;
 import com.valdo.hajihealthmonitoring.Booklet.BookletZatTubuh;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
-import com.valdo.hajihealthmonitoring.activity.KartuPantau;
 import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
-import com.valdo.hajihealthmonitoring.activity.LoginActivity;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -69,17 +64,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
 
 
-        buttonKesehatan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    if (Preferences.getLoggedInStatus(getContext())){
-                       startActivity(new Intent(getContext(), KartuPemantauan.class));
-                    }
-                    else
-                        startActivity(new Intent(getContext(), LoginActivity.class));
-
-            }
-        });
+//        buttonKesehatan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                    if (Preferences.getLoggedInStatus(getContext())){
+//                       startActivity(new Intent(getContext(), KartuPemantauan.class));
+//                    }
+//                    else
+//                        startActivity(new Intent(getContext(), LoginActivity.class));
+//
+//            }
+//        });
 
         buttonJadwal.setOnClickListener(new View.OnClickListener() {
             @Override
