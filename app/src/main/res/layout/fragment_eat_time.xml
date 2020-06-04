@@ -6,7 +6,29 @@
     tools:context=".fragment.EatTImeFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#ddd"
+        >
+        <TextView
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Jadwal Makan"
+            android:textColor="#000000"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            android:gravity="center"
+
+            >
+
+        </TextView>
+
+    </LinearLayout>
     <ScrollView
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
