@@ -1,7 +1,5 @@
 package com.valdo.hajihealthmonitoring.fragment;
 
-
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -9,7 +7,7 @@ import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
-//import androidx.fragment.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,15 +22,13 @@ import com.valdo.hajihealthmonitoring.Booklet.BookletStunting;
 import com.valdo.hajihealthmonitoring.Booklet.BookletZatTubuh;
 import com.valdo.hajihealthmonitoring.Preferences.Preferences;
 import com.valdo.hajihealthmonitoring.R;
+import com.valdo.hajihealthmonitoring.activity.EatSchedule;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
 import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
 
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
     public HomeFragment() {
@@ -63,18 +59,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         buttonJadwal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                EatTImeFragment fragment2= new EatTImeFragment();
-//                getActivity().getFragmentManager().beginTransaction()
-//                        .replace(R.id.fragmentContainer, fragment2)
-//                        .addToBackStack(null)
-//                        .commit();
+                startActivity(new Intent(getContext(), EatSchedule.class));
             }
         });
 
         buttonKesehatan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getContext(), KartuPemantauan.class));
+                startActivity(new Intent(getContext(), KartuPemantauan.class));
             }
         });
         Date date = new Date();
@@ -98,8 +90,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
+//    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -124,6 +115,5 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 break;
         }
     }
-
 
 }
