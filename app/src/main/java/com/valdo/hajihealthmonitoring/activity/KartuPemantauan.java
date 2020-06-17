@@ -9,6 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.valdo.hajihealthmonitoring.R;
 
 import java.io.FileInputStream;
@@ -23,6 +28,7 @@ public class KartuPemantauan extends AppCompatActivity {
     TextView lihatTanggal, namaBalita, minggu;
     EditText tinggi,berat;
     Button submitBut;
+    AdView mAdView;
 
     static final int READ_BLOCK_SIZE = 100;
 
@@ -33,62 +39,72 @@ public class KartuPemantauan extends AppCompatActivity {
         lihatTanggal = findViewById(R.id.kartuTanggal);
         namaBalita = findViewById(R.id.kartuNama);
         minggu = findViewById(R.id.kartuMinggu);
-        tinggi = findViewById(R.id.editTextTinggi);
+        tinggi = findViewById(R.id.inputPanjang);
         berat = findViewById(R.id.editTextBerat);
+        submitBut = findViewById(R.id.buttonKirim);
 
         setDate(lihatTanggal);
 
-        submitBut = findViewById(R.id.buttonKirim);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+
+            }
+        });
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         submitBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                writeData();
+//                writeData();
             }
         });
 
-        readData();
+//        readData();
 
     }
 
-    private void writeData(){
-        try {
-            FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-            outputWriter.write(tinggi.getText().toString());
-            outputWriter.close();
-
-            //display file saved message
-            Toast.makeText(getBaseContext(), "File saved successfully!",
-                    Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private  void readData(){
-        try {
-            FileInputStream fileIn=openFileInput("mytextfile.txt");
-            InputStreamReader InputRead= new InputStreamReader(fileIn);
-
-            char[] inputBuffer= new char[READ_BLOCK_SIZE];
-            String s="";
-            int charRead;
-
-            while ((charRead=InputRead.read(inputBuffer))>0) {
-                // char to string conversion
-                String readstring=String.copyValueOf(inputBuffer,0,charRead);
-                s +=readstring;
-            }
-            berat.setText(s);
-            InputRead.close();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void writeData(){
+//        try {
+//            FileOutputStream fileout=openFileOutput("mytextfile.txt", MODE_PRIVATE);
+//            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+//            outputWriter.write(tinggi.getText().toString());
+//            outputWriter.close();
+//
+//            //display file saved message
+//            Toast.makeText(getBaseContext(), "File saved successfully!",
+//                    Toast.LENGTH_SHORT).show();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    private  void readData(){
+//        try {
+//            FileInputStream fileIn=openFileInput("mytextfile.txt");
+//            InputStreamReader InputRead= new InputStreamReader(fileIn);
+//
+//            char[] inputBuffer= new char[READ_BLOCK_SIZE];
+//            String s="";
+//            int charRead;
+//
+//            while ((charRead=InputRead.read(inputBuffer))>0) {
+//                // char to string conversion
+//                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+//                s +=readstring;
+//            }
+//            berat.setText(s);
+//            InputRead.close();
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void setDate(TextView view) {
         Date today = Calendar.getInstance().getTime();

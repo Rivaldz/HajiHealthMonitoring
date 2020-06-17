@@ -24,8 +24,8 @@ public class EatSchedule extends AppCompatActivity {
 
             }
         });
-        mAdView = findViewById(R.id.adViewEat);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        mAdView = findViewById(R.id.adViewEat);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
     }
 }
