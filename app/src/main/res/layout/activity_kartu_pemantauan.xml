@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#68E3AD"
     tools:context=".activity.KartuPemantauan">
 
     <Button
         android:id="@+id/buttonKirim"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_shapegreen"
         android:text="Kirim"
@@ -63,15 +64,17 @@
     <TextView
         android:id="@+id/kartuMinggu"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="315dp"
         android:text="Minggu Ke 1"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kartuTanggal" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/kartuNama"
@@ -104,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="16dp"
         android:text="Nama Balita"
         android:textColor="@color/black"
@@ -152,5 +155,15 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </com.google.android.gms.ads.AdView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kartuTanggal"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

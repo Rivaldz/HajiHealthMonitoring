@@ -13,19 +13,9 @@ import com.valdo.hajihealthmonitoring.R;
 
 
 public class EatSchedule extends AppCompatActivity {
-    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eat_schedule);
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-            }
-        });
-//        mAdView = findViewById(R.id.adViewEat);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
     }
 }
