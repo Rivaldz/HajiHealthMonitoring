@@ -54,6 +54,7 @@
                     android:layout_height="wrap_content">
 
                     <RelativeLayout
+                        android:id="@+id/firstSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -99,6 +100,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/secondSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -144,6 +146,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/thirdSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -189,6 +192,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/fourSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -234,6 +238,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/fiveSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -279,6 +284,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/sixSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -324,6 +330,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/sevenSce"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="#fff"
@@ -368,6 +375,7 @@
                     >
 
                     <RelativeLayout
+                        android:id="@+id/eightSce"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#fff"
