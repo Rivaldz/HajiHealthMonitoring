@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.valdo.hajihealthmonitoring">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.webview.Asi"></activity>
+        <activity android:name=".activity.MenuResep"></activity>
+        <activity android:name=".activity.webview.Asi" />
         <activity android:name=".activity.EatSchedule" />
         <activity android:name=".Booklet.BookletKeluargaGizi" />
         <activity android:name=".Booklet.BookletMakanBalita" />
@@ -19,7 +18,7 @@
         <activity android:name=".Booklet.BookletAkg" />
         <activity android:name=".Booklet.BookletStunting" />
         <activity android:name=".activity.KartuPemantauan" />
-        <activity android:name=".activity.KartuPantau" /> <!-- <activity android:name=".MainActivity"/> -->
+        <activity android:name=".activity.KartuPantau" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,5 +31,7 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3057186935471127~8888299376" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
