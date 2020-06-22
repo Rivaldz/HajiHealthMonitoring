@@ -3,14 +3,10 @@ package com.valdo.hajihealthmonitoring.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.valdo.hajihealthmonitoring.R;
-import com.valdo.hajihealthmonitoring.model.CustomExpandableListAdapter;
-import com.valdo.hajihealthmonitoring.model.ExpandableListDataPump;
+import com.valdo.hajihealthmonitoring.model.ExpeandAbleListViewAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,56 +14,50 @@ import java.util.List;
 
 public class MenuResep extends AppCompatActivity {
 
+    ExpeandAbleListViewAdapter listViewAdapter;
     ExpandableListView expandableListView;
-    ExpandableListAdapter expandableListAdapter;
-    List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
+    List<String>chapterList;
+    HashMap<String, List<String>>topicsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_resep);
-        expandableListView = (ExpandableListView) findViewById(R.id.listView);
-        expandableListDetail = ExpandableListDataPump.getData();
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
-        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView = findViewById(R.id.listView);
 
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+        showlist();
 
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Expanded.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        listViewAdapter = new ExpeandAbleListViewAdapter(this, chapterList, topicsList);
+        expandableListView.setAdapter(listViewAdapter);
+   }
 
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+    private void showlist() {
+        chapterList = new ArrayList<String>();
+        topicsList = new HashMap<String, List<String>>();
 
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        expandableListTitle.get(groupPosition) + " List Collapsed.",
-                        Toast.LENGTH_SHORT).show();
+        chapterList.add("Chapter 1");
+        chapterList.add("Chapter 2");
+        chapterList.add("Chapter 3");
 
-            }
-        });
 
-        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getApplicationContext(),
-                        expandableListTitle.get(groupPosition)
-                                + " -> "
-                                + expandableListDetail.get(
-                                expandableListTitle.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT
-                ).show();
-                return false;
-            }
-        });
+        List<String> topic1 = new ArrayList<>();
+        topic1.add("ini topic 1");
+        topic1.add("ini topic 2");
+        topic1.add("ini topic 2");
+
+
+        List<String> topic2 = new ArrayList<>();
+        topic2.add("ini topic 1");
+        topic2.add("ini topic 2");
+        topic2.add("ini topic 2");
+
+        List<String> topic3 = new ArrayList<>();
+        topic3.add("ini topic 1");
+        topic3.add("ini topic 2");
+        topic3.add("ini topic 2");
+
+        topicsList.put(chapterList.get(0),topic1);
+        topicsList.put(chapterList.get(1),topic2);
+        topicsList.put(chapterList.get(2),topic3);
     }
 }

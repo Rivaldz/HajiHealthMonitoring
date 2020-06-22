@@ -25,6 +25,7 @@ import com.valdo.hajihealthmonitoring.R;
 import com.valdo.hajihealthmonitoring.activity.EatSchedule;
 import com.valdo.hajihealthmonitoring.activity.KartuPantau;
 import com.valdo.hajihealthmonitoring.activity.KartuPemantauan;
+import com.valdo.hajihealthmonitoring.activity.MenuResep;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +44,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         RelativeLayout buttonKesehatan = view.findViewById(R.id.buttonKesehatan);
         RelativeLayout buttonJadwal = view.findViewById(R.id.buttonJadwalMakan);
+        RelativeLayout buttonMenuResep = view.findViewById(R.id.buttonMenuResep);
 
         CardView stunting = view.findViewById(R.id.stunting);
         stunting.setOnClickListener(this);
@@ -69,6 +71,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getContext(), KartuPemantauan.class));
             }
         });
+        buttonMenuResep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), MenuResep.class));
+            }
+        });
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -90,7 +98,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     }
 
-//    @RequiresApi(api = Build.VERSION_CODES.M)
+// klik listener fot stunting information
     @Override
     public void onClick(View v) {
         switch (v.getId()){
